@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 const images = [
-  '/image-product-1.jpg',
-  '/image-product-2.jpg',
-  '/image-product-3.jpg',
-  '/image-product-4.jpg'
+  import.meta.env.BASE_URL + 'image-product-1.jpg',
+  import.meta.env.BASE_URL + 'image-product-2.jpg',
+  import.meta.env.BASE_URL + 'image-product-3.jpg',
+  import.meta.env.BASE_URL + 'image-product-4.jpg'
 ]
 const currentIndex = ref(0)
 
