@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/ecommerce-project-demo/', // ⚠️ 請改成你的 repo 名稱
+  base: '/ecommerce-project-demo/',
   plugins: [
     vue(),
     vueDevTools()
