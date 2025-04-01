@@ -1,3 +1,7 @@
+html {
+  /* 禁止雙擊縮放效果，使用者只能透過兩指操作縮放 */
+  touch-action: manipulation;
+}
 body {
 margin: 0;
 font-family: 'Kumbh Sans';
