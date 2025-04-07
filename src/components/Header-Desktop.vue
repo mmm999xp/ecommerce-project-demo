@@ -1,5 +1,7 @@
 <script setup>
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import CartPlugins from '@/components/Cart-Plugins.vue'
 const { locale } = useI18n()
 const menu = [
   {
@@ -36,6 +38,14 @@ const menu = [
     }
   }
 ]
+const openCart = ref(false)
+const cartSwitch = () => {
+  openCart.value = !openCart.value
+}
+const cartItem = ref()
+cartItem.value = localStorage.getItem('cart')
+cartItem.value = JSON.parse(cartItem.value)
+
 </script>
 
 <template>
@@ -47,8 +57,11 @@ const menu = [
       </div>
     </div>
     <div class="personal">
-      <img src="/icon-cart.svg" alt="購物車" class="icon-cart">
+      <el-badge :value="cartItem?.count || 0"  color="#FF7E1B" >
+        <img src="/icon-cart.svg" alt="購物車" class="icon-cart" @click="cartSwitch">
+      </el-badge>
       <img src="/image-avatar.png" alt="人物" height="50" width="50" class="avatar">
+      <CartPlugins v-if="openCart" />
     </div>
   </div>
 </template>
@@ -102,5 +115,23 @@ const menu = [
     border: hsl(26, 100%, 55%) 2px solid;
     border-radius: 50%;
   }
+}
+
+.el-card {
+  position: absolute;
+  top: 90px;
+  right:120px;
+  width: 350px;
+}
+.cart-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 4px;
+}
+.delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 </style>
