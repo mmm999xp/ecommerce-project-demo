@@ -61,7 +61,7 @@ cartItem.value = JSON.parse(cartItem.value)
         <img src="/icon-cart.svg" alt="購物車" class="icon-cart" @click="cartSwitch">
       </el-badge>
       <img src="/image-avatar.png" alt="人物" height="50" width="50" class="avatar">
-      <CartPlugins v-if="openCart" />
+      <CartPlugins v-if="openCart" device="desktop"/>
     </div>
   </div>
 </template>

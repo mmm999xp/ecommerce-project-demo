@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import CartPlugins from '@/components/Cart-Plugins.vue'
 const { locale } = useI18n()
 const openMenu = ref(false)
 const menu = [
@@ -38,6 +39,14 @@ const menu = [
     }
   }
 ]
+
+const openCart = ref(false)
+const cartSwitch = () => {
+  openCart.value = !openCart.value
+}
+const cartItem = ref()
+cartItem.value = localStorage.getItem('cart')
+cartItem.value = JSON.parse(cartItem.value)
 </script>
 
 <template>
@@ -47,8 +56,11 @@ const menu = [
     </div>
     <img src="/logo.svg" alt="sneakers" class="logo">
     <div class="personal">
-      <img src="/icon-cart.svg" alt="購物車" class="icon-cart">
+      <el-badge :value="cartItem?.count || 0"  color="#FF7E1B" >
+        <img src="/icon-cart.svg" alt="購物車" class="icon-cart" @click="cartSwitch">
+      </el-badge>
       <img src="/image-avatar.png" alt="人物" height="50" width="50" class="avatar">
+      <CartPlugins v-if="openCart" device="mobile" />
     </div>
   </div>
   <!-- 抽屜式選單 -->

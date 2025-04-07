@@ -11,5 +11,6 @@
   "product_description" : "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
   "addToCart": "Add to cart",
   "cart": "cart",
-  "noData": "Your Cart is empty."
+  "noData": "Your Cart is empty.",
+  "checkout": "checkout"
 }
