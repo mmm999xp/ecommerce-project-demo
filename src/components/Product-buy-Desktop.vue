@@ -28,7 +28,7 @@ const addToCart = () => {
   <del class="base-price">$ {{ (basePrice * count).toFixed(2)}}</del>
 </div>
 <div class="buy-group">
-  <el-input-number v-model="count" :min="0">
+  <el-input-number v-model="count" :min="1">
     <template #decrease-icon>
       <img src="/icon-minus.svg" alt="minus">
     </template>
